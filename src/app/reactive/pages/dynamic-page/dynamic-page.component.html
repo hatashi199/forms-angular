@@ -1,0 +1,93 @@
+<section class="bg-gray-100 py-16 px-6">
+	<div class="max-w-lg mx-auto bg-white rounded-md shadow p-8 mb-8">
+		<h2 class="text-lg text-center font-bold mb-8">
+			Reactivos: <small> Dinámicos </small>
+		</h2>
+
+		<form
+			autocomplete="off"
+			class="grid grid-cols-1 sm:grid-cols-2"
+		>
+			<div class="sm:col-span-2 flex flex-col gap-2 py-2">
+				<label
+					for="name"
+					class="block text-sm text-gray-700 font-bold"
+					>Nombre</label
+				>
+				<div class="flex flex-col gap-1">
+					<input
+						type="text"
+						id="name"
+						placeholder="Nombre de la persona"
+						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+					/>
+					<span class="text-red-500 text-xs"> Mensaje de error </span>
+				</div>
+			</div>
+			<div class="flex flex-col gap-2 py-2">
+				<label
+					for="addFav"
+					class="block text-sm text-gray-700 font-bold"
+					>Agregar favoritos</label
+				>
+				<div class="flex flex-col gap-1">
+					<input
+						type="text"
+						id="addFav"
+						placeholder="Agregar favoritos"
+						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+					/>
+					<span class="text-red-500 text-xs"> Mensaje de error </span>
+				</div>
+			</div>
+			<button
+				class="rounded-full bg-blue-600 px-8 py-2 mt-2 sm:ml-2 h-12 text-sm font-bold text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full"
+				type="button"
+			>
+				Agregar
+			</button>
+			<div class="flex flex-col gap-2 py-2">
+				<label
+					for="favList"
+					class="block text-sm text-gray-700 font-bold"
+					>Favoritos</label
+				>
+				<div class="flex flex-col gap-1">
+					<input
+						type="text"
+						id="favList"
+						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+					/>
+					<span class="text-red-500 text-xs"> Mensaje de error </span>
+				</div>
+			</div>
+			<button
+				class="rounded-full bg-blue-600 px-8 py-2 mt-2 sm:ml-2 h-12 text-sm font-bold text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full"
+				type="button"
+			>
+				Eliminar
+			</button>
+
+			<button
+				class="sm:col-span-2 rounded-full bg-blue-600 px-8 py-2 mt-8 h-12 text-sm font-bold text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full"
+				type="submit"
+			>
+				<!-- [disabled]="myForm.invalid" -->
+				Guardar
+			</button>
+		</form>
+	</div>
+	<div class="center-element bg-white shadow p-8 rounded-md">
+		<span>Valid</span>
+		<pre>{{ 'object' | json }}</pre>
+		<br />
+
+		<span>Value</span>
+		<pre>{{ 'object' | json }}</pre>
+		<br />
+
+		<span>Agregar Juego</span>
+		<pre>{{ 'object' | json }}</pre>
+		<pre>{{ 'object' | json }}</pre>
+	</div>
+</section>

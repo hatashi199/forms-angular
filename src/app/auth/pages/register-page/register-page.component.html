@@ -1,0 +1,130 @@
+<section class="bg-gray-100 py-16 px-6">
+	<div class="max-w-lg mx-auto bg-white rounded-md shadow p-8 mb-8">
+		<h2 class="text-lg text-center font-bold mb-8">
+			Validaciones Reactivas
+		</h2>
+		<form
+			autocomplete="off"
+			class="grid grid-cols-1"
+		>
+			<div class="flex flex-col gap-2 py-2">
+				<label
+					for="name"
+					class="block text-sm text-gray-700 font-bold"
+					>Nombre</label
+				>
+				<div class="flex flex-col gap-1">
+					<input
+						type="text"
+						id="name"
+						placeholder="Nombre del usuario"
+						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+					/>
+					<span class="text-red-500 text-xs">
+						Debe de ser en formato de nombre y apellido
+					</span>
+				</div>
+			</div>
+			<div class="flex flex-col gap-2 py-2">
+				<label
+					for="email"
+					class="block text-sm text-gray-700 font-bold"
+					>Email</label
+				>
+				<div class="flex flex-col gap-1">
+					<input
+						type="email"
+						id="email"
+						placeholder="Email del usuario"
+						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+					/>
+					<span class="text-red-500 text-xs">
+						Mensaje de error del email
+					</span>
+				</div>
+			</div>
+			<div class="flex flex-col gap-2 py-2">
+				<label
+					for="username"
+					class="block text-sm text-gray-700 font-bold"
+					>Nombre de Usuario</label
+				>
+				<div class="flex flex-col gap-1">
+					<input
+						type="text"
+						id="username"
+						placeholder="Nombre de usuario"
+						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+					/>
+					<span class="text-red-500 text-xs">
+						El username no puede ser Strider
+					</span>
+				</div>
+			</div>
+			<div class="flex flex-col gap-2 py-2">
+				<label
+					for="pass"
+					class="block text-sm text-gray-700 font-bold"
+					>Contraseña</label
+				>
+				<div class="flex flex-col gap-1">
+					<input
+						type="password"
+						id="pass"
+						placeholder="Contraseña"
+						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+					/>
+					<span class="text-red-500 text-xs">
+						La contraseña debe ser mayor de 6 caracteres
+					</span>
+				</div>
+			</div>
+			<div class="flex flex-col gap-2 py-2">
+				<label
+					for="passRepeat"
+					class="block text-sm text-gray-700 font-bold"
+					>Repite contraseña</label
+				>
+				<div class="flex flex-col gap-1">
+					<input
+						type="password"
+						id="passRepeat"
+						placeholder="Repite contraseña"
+						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+					/>
+					<span class="text-red-500 text-xs">
+						La contraseñas deben ser iguales
+					</span>
+				</div>
+			</div>
+			<button
+				class="rounded-full bg-blue-600 px-8 py-2 mt-8 h-12 text-sm font-bold text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full"
+				type="submit"
+			>
+				Crear
+			</button>
+		</form>
+	</div>
+	<div class="center-element bg-white shadow p-8 rounded-md">
+		<h2>Form Valid:</h2>
+		<h2>Form Status:</h2>
+		<h2>Form Pending:</h2>
+		<h2>Form errors</h2>
+		<pre>{{ 'formulario' | json }}</pre>
+
+		<h5>Nombre</h5>
+		<pre>{{ 'formulario' | json }}</pre>
+
+		<h5>Email</h5>
+		<pre>{{ 'formulario' | json }}</pre>
+
+		<h5>Username</h5>
+		<pre>{{ 'formulario' | json }}</pre>
+
+		<h5>Password</h5>
+		<pre>{{ 'formulario' | json }}</pre>
+
+		<h5>Confirmar</h5>
+		<pre>{{ 'formulario' | json }}</pre>
+	</div>
+</section>
