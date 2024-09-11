@@ -4,6 +4,8 @@
 		<form
 			autocomplete="off"
 			class="grid grid-cols-1"
+			[formGroup]="basicForm"
+			(ngSubmit)="onSave()"
 		>
 			<div class="flex flex-col gap-2 py-2">
 				<label
@@ -17,22 +19,24 @@
 						id="product"
 						placeholder="Nombre del producto"
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+						formControlName="product"
 					/>
 					<span class="text-red-500 text-xs"> Mensaje de error </span>
 				</div>
 			</div>
 			<div class="flex flex-col gap-2 py-2">
 				<label
-					for="prize"
+					for="price"
 					class="block text-sm text-gray-700 font-bold"
 					>Precio</label
 				>
 				<div class="flex flex-col gap-1">
 					<input
 						type="number"
-						id="prize"
+						id="price"
 						placeholder="Precio del producto"
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+						formControlName="price"
 					/>
 					<span class="text-red-500 text-xs"> Mensaje de error </span>
 				</div>
@@ -49,6 +53,7 @@
 						id="stock"
 						placeholder="Existencias del producto"
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+						formControlName="stock"
 					/>
 					<span class="text-red-500 text-xs"> Mensaje de error </span>
 				</div>
@@ -63,21 +68,27 @@
 	</div>
 	<div class="center-element bg-white shadow p-8 rounded-md">
 		<span>Valid</span>
-		<pre>{{ 'objeto' | json }}</pre>
+		<pre>{{ basicForm.valid | json }}</pre>
 
 		<span>Pristine</span>
-		<pre>{{ 'objeto' | json }}</pre>
+		<pre>{{ basicForm.pristine | json }}</pre>
 
 		<span>Touched</span>
-		<pre>{{ 'objeto' | json }}</pre>
+		<pre>{{ basicForm.touched | json }}</pre>
 
 		<span>Value</span>
-		<pre>{{ 'objeto' | json }}</pre>
+		<pre>{{ basicForm.value | json }}</pre>
 
 		<span>Precio</span>
-		<pre>{{ 'objeto' | json }}</pre>
+		<pre>{{ basicForm.controls['price'].value | json }}</pre>
+
+		<span>Precio - Errors</span>
+		<pre>{{ basicForm.controls['price'].errors | json }}</pre>
 
 		<span>Producto</span>
-		<pre>{{ 'objeto' | json }}</pre>
+		<pre>{{ basicForm.controls['product'].value | json }}</pre>
+
+		<span>Producto - Errors</span>
+		<pre>{{ basicForm.controls['product'].errors | json }}</pre>
 	</div>
 </section>
