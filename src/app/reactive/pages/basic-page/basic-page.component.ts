@@ -29,8 +29,39 @@ export class BasicPageComponent implements OnInit {
 		});
 	}
 
+	isValidField(field: string): boolean | null {
+		return (
+			this.basicForm.controls[field].errors &&
+			this.basicForm.controls[field].touched
+		);
+	}
+
+	getFieldError(field: string): string | null {
+		if (!this.basicForm.controls[field]) return null;
+
+		const errors = this.basicForm.controls[field].errors || {};
+
+		for (const key of Object.keys(errors)) {
+			switch (key) {
+				case 'required':
+					return 'Este campo es requerido';
+				case 'minlength':
+					return `Mínimo escribe ${errors['minlength'].requiredLength} letras`;
+				case 'min':
+					return 'Los números no pueden ser negativos';
+				default:
+					return '';
+			}
+		}
+
+		return '';
+	}
+
 	onSave(): void {
-		if (this.basicForm.invalid) return;
+		if (this.basicForm.invalid) {
+			this.basicForm.markAllAsTouched();
+			return;
+		}
 		console.log(this.basicForm.value);
 		this.basicForm.reset({ price: 0, stock: 0 });
 	}

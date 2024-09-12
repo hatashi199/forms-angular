@@ -21,7 +21,11 @@
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
 						formControlName="product"
 					/>
-					<span class="text-red-500 text-xs"> Mensaje de error </span>
+					<span
+						*ngIf="isValidField('product')"
+						class="text-red-500 text-xs"
+						>{{ getFieldError('product') }}</span
+					>
 				</div>
 			</div>
 			<div class="flex flex-col gap-2 py-2">
@@ -38,7 +42,11 @@
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
 						formControlName="price"
 					/>
-					<span class="text-red-500 text-xs"> Mensaje de error </span>
+					<span
+						*ngIf="isValidField('price')"
+						class="text-red-500 text-xs"
+						>{{ getFieldError('price') }}</span
+					>
 				</div>
 			</div>
 			<div class="flex flex-col gap-2 py-2">
@@ -55,7 +63,11 @@
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
 						formControlName="stock"
 					/>
-					<span class="text-red-500 text-xs"> Mensaje de error </span>
+					<span
+						*ngIf="isValidField('stock')"
+						class="text-red-500 text-xs"
+						>{{ getFieldError('stock') }}</span
+					>
 				</div>
 			</div>
 			<button
