@@ -29,7 +29,7 @@ export class DynamicPageComponent {
 	constructor(private fb: FormBuilder) {}
 
 	get favGames() {
-		return this.dynamicForm.get('favGamesList') as FormArray;
+		return this.dynamicForm.get('favGames') as FormArray;
 	}
 
 	isValidField(field: string): boolean | null {
@@ -73,6 +73,7 @@ export class DynamicPageComponent {
 
 		// this.favGames.push(new FormControl(newGame, Validators.required))
 		this.favGames.push(this.fb.control(newGame, Validators.required));
+		this.newFav.reset();
 	}
 
 	onDeleteFav(index: number): void {
@@ -85,8 +86,9 @@ export class DynamicPageComponent {
 			return;
 		}
 		console.log(this.dynamicForm.value);
-		(this.dynamicForm.controls['favoriteGames'] as FormArray) =
-			this.fb.array([]);
+		(this.dynamicForm.controls['favGames'] as FormArray) = this.fb.array(
+			[]
+		);
 		this.dynamicForm.reset();
 	}
 }

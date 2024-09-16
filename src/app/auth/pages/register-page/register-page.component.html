@@ -6,6 +6,8 @@
 		<form
 			autocomplete="off"
 			class="grid grid-cols-1"
+			[formGroup]="registerForm"
+			(ngSubmit)="onSave()"
 		>
 			<div class="flex flex-col gap-2 py-2">
 				<label
@@ -19,6 +21,7 @@
 						id="name"
 						placeholder="Nombre del usuario"
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+						formControlName="name"
 					/>
 					<span class="text-red-500 text-xs">
 						Debe de ser en formato de nombre y apellido
@@ -37,6 +40,7 @@
 						id="email"
 						placeholder="Email del usuario"
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+						formControlName="email"
 					/>
 					<span class="text-red-500 text-xs">
 						Mensaje de error del email
@@ -55,6 +59,7 @@
 						id="username"
 						placeholder="Nombre de usuario"
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+						formControlName="username"
 					/>
 					<span class="text-red-500 text-xs">
 						El username no puede ser Strider
@@ -73,6 +78,7 @@
 						id="pass"
 						placeholder="Contraseña"
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+						formControlName="password"
 					/>
 					<span class="text-red-500 text-xs">
 						La contraseña debe ser mayor de 6 caracteres
@@ -91,6 +97,7 @@
 						id="passRepeat"
 						placeholder="Repite contraseña"
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+						formControlName="repeatPass"
 					/>
 					<span class="text-red-500 text-xs">
 						La contraseñas deben ser iguales
@@ -106,25 +113,38 @@
 		</form>
 	</div>
 	<div class="center-element bg-white shadow p-8 rounded-md">
-		<h2>Form Valid:</h2>
-		<h2>Form Status:</h2>
-		<h2>Form Pending:</h2>
+		<h2>Form Valid: {{ registerForm.valid | json }}</h2>
+		<br />
+		<h2>Form Status: {{ registerForm.status | json }}</h2>
+		<br />
+		<h2>Form Pending: {{ registerForm.pending | json }}</h2>
+		<br />
 		<h2>Form errors</h2>
-		<pre>{{ 'formulario' | json }}</pre>
+		<pre>{{ registerForm.errors | json }}</pre>
+		<br />
 
 		<h5>Nombre</h5>
-		<pre>{{ 'formulario' | json }}</pre>
+		<pre>{{ registerForm.controls['name'].value | json }}</pre>
+		<br />
 
 		<h5>Email</h5>
-		<pre>{{ 'formulario' | json }}</pre>
+		<pre>{{ registerForm.controls['email'].value | json }}</pre>
+		<br />
 
 		<h5>Username</h5>
-		<pre>{{ 'formulario' | json }}</pre>
+		<pre>{{ registerForm.controls['username'].value | json }}</pre>
+		<br />
+
+		<h5>Username Errors</h5>
+		<pre>{{ registerForm.controls['username'].errors | json }}</pre>
+		<br />
 
 		<h5>Password</h5>
-		<pre>{{ 'formulario' | json }}</pre>
+		<pre>{{ registerForm.controls['password'].value | json }}</pre>
+		<br />
 
 		<h5>Confirmar</h5>
-		<pre>{{ 'formulario' | json }}</pre>
+		<pre>{{ registerForm.controls['repeatPass'].value | json }}</pre>
+		<br />
 	</div>
 </section>

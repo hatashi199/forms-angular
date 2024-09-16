@@ -5,6 +5,8 @@
 		<form
 			autocomplete="off"
 			class="grid grid-cols-1"
+			[formGroup]="switchesForm"
+			(ngSubmit)="onSave()"
 		>
 			<div class="flex flex-col gap-2 py-2">
 				<h4 class="block text-sm text-gray-700 font-bold">Género</h4>
@@ -14,7 +16,9 @@
 					>
 						<input
 							type="radio"
+							name="gender"
 							value="M"
+							formControlName="gender"
 						/>
 						<span>Masculino</span>
 					</label>
@@ -23,11 +27,19 @@
 					>
 						<input
 							type="radio"
+							name="gender"
 							value="F"
+							formControlName="gender"
 						/>
 						<span>Femenino</span>
 					</label>
 				</div>
+				<span
+					*ngIf="isValidField('gender')"
+					class="text-red-500 text-xs"
+				>
+					{{ getFieldError('gender') }}
+				</span>
 			</div>
 			<div class="flex flex-col gap-2 py-2">
 				<h4 class="block text-sm text-gray-700 font-bold">
@@ -37,19 +49,34 @@
 					<label
 						class="flex gap-2 text-sm text-gray-700 rounded-md px-3 cursor-pointer"
 					>
-						<input type="checkbox" />
+						<input
+							type="checkbox"
+							formControlName="wantNotifications"
+						/>
 						<span>Quiero recibir notificaciones</span>
 					</label>
+					<span
+						*ngIf="isValidField('wantNotifications')"
+						class="text-red-500 text-xs"
+					>
+						{{ getFieldError('wantNotifications') }}
+					</span>
 					<label
 						class="flex gap-2 text-sm text-gray-700 rounded-md px-3 cursor-pointer"
 					>
-						<input type="checkbox" />
+						<input
+							type="checkbox"
+							formControlName="termAndConditions"
+						/>
 						<span>Términos y condiciones de uso</span>
 					</label>
+					<span
+						*ngIf="isValidField('termAndConditions')"
+						class="text-red-500 text-xs"
+					>
+						{{ getFieldError('termAndConditions') }}
+					</span>
 				</div>
-				<span class="text-red-500 text-xs">
-					Debe de aceptar las condiciones de uso
-				</span>
 			</div>
 
 			<button
@@ -62,15 +89,15 @@
 	</div>
 	<div class="center-element bg-white shadow p-8 rounded-md">
 		<h5>Valor del formulario</h5>
-		<pre>{{ 'object' | json }}</pre>
+		<pre>{{ switchesForm.value | json }}</pre>
 		<br />
 
 		<h5>Persona</h5>
-		<pre>{{ 'object' | json }}</pre>
+		<pre>{{ person | json }}</pre>
 		<br />
 
 		<h5>Valid</h5>
-		<pre>{{ 'object' | json }}</pre>
+		<pre>{{ switchesForm.valid | json }}</pre>
 
 		<!-- <h5>Términos</h5> -->
 		<!-- <pre>{{ myForm.controls?.terminos?.errors | json }}</pre> -->
