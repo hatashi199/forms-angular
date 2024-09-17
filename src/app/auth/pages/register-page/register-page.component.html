@@ -23,8 +23,11 @@
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
 						formControlName="name"
 					/>
-					<span class="text-red-500 text-xs">
-						Debe de ser en formato de nombre y apellido
+					<span
+						*ngIf="isValidField('name')"
+						class="text-red-500 text-xs"
+					>
+						{{ getErrorsField('name') }}
 					</span>
 				</div>
 			</div>
@@ -42,8 +45,11 @@
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
 						formControlName="email"
 					/>
-					<span class="text-red-500 text-xs">
-						Mensaje de error del email
+					<span
+						*ngIf="isValidField('email')"
+						class="text-red-500 text-xs"
+					>
+						{{ getErrorsField('email') }}
 					</span>
 				</div>
 			</div>
@@ -61,8 +67,11 @@
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
 						formControlName="username"
 					/>
-					<span class="text-red-500 text-xs">
-						El username no puede ser Strider
+					<span
+						*ngIf="isValidField('username')"
+						class="text-red-500 text-xs"
+					>
+						{{ getErrorsField('username') }}
 					</span>
 				</div>
 			</div>
@@ -80,8 +89,11 @@
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
 						formControlName="password"
 					/>
-					<span class="text-red-500 text-xs">
-						La contraseña debe ser mayor de 6 caracteres
+					<span
+						*ngIf="isValidField('password')"
+						class="text-red-500 text-xs"
+					>
+						{{ getErrorsField('password') }}
 					</span>
 				</div>
 			</div>
@@ -99,8 +111,11 @@
 						class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
 						formControlName="repeatPass"
 					/>
-					<span class="text-red-500 text-xs">
-						La contraseñas deben ser iguales
+					<span
+						*ngIf="isValidField('repeatPass')"
+						class="text-red-500 text-xs"
+					>
+						{{ getErrorsField('repeatPass') }}
 					</span>
 				</div>
 			</div>
@@ -127,8 +142,16 @@
 		<pre>{{ registerForm.controls['name'].value | json }}</pre>
 		<br />
 
+		<h5>Nombre Errors</h5>
+		<pre>{{ registerForm.controls['name'].errors | json }}</pre>
+		<br />
+
 		<h5>Email</h5>
 		<pre>{{ registerForm.controls['email'].value | json }}</pre>
+		<br />
+
+		<h5>Email Errors</h5>
+		<pre>{{ registerForm.controls['email'].errors | json }}</pre>
 		<br />
 
 		<h5>Username</h5>
@@ -144,7 +167,7 @@
 		<br />
 
 		<h5>Confirmar</h5>
-		<pre>{{ registerForm.controls['repeatPass'].value | json }}</pre>
+		<pre>{{ registerForm.controls['repeatPass'].errors | json }}</pre>
 		<br />
 	</div>
 </section>
