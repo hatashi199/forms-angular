@@ -6,12 +6,14 @@ import { DynamicPageComponent } from './pages/dynamic-page/dynamic-page.componen
 import { SwitchesPageComponent } from './pages/switches-page/switches-page.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SelectorsPageComponent } from './pages/selectors-page/selectors-page.component';
 
 @NgModule({
 	declarations: [
 		BasicPageComponent,
 		DynamicPageComponent,
-		SwitchesPageComponent
+		SwitchesPageComponent,
+  SelectorsPageComponent
 	],
 	imports: [CommonModule, ReactiveRoutingModule, ReactiveFormsModule]
 })

@@ -1,0 +1,50 @@
+<section class="bg-gray-100 py-16 px-6 h-[100vh]">
+	<div class="max-w-lg mx-auto bg-white rounded-md shadow p-8 mb-8">
+		<h2 class="text-lg text-center font-bold mb-8">
+			Reactivos: Selectores
+		</h2>
+		<form
+			autocomplete="off"
+			class="grid grid-cols-1"
+			[formGroup]="selectorForm"
+		>
+			<div class="flex flex-col gap-2 py-2">
+				<label
+					for="continent"
+					class="block text-sm text-gray-700 font-bold"
+					>Continente</label
+				>
+				<div class="flex flex-col gap-1">
+					<select
+						id="continent"
+						placeholder="Nombre del producto"
+						class="block w-full h-10 px-4 cursor-pointer placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+						formControlName="continent"
+					>
+						<option
+							value=""
+							selected
+						>
+							-- Seleccione un continente --
+						</option>
+						<option
+							*ngFor="let region of regions"
+							[value]="region"
+						>
+							{{ region }}
+						</option>
+					</select>
+					<span class="text-red-500 text-xs">Mensaje de error</span>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="center-element bg-white shadow p-8 rounded-md">
+		<span>Formulario</span>
+		<pre>{{ selectorForm.value | json }}</pre>
+		<br />
+		<span>Valid</span>
+		<pre>{{ selectorForm.valid | json }}</pre>
+		<br />
+	</div>
+</section>
