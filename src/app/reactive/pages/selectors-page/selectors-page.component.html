@@ -17,7 +17,6 @@
 				<div class="flex flex-col gap-1">
 					<select
 						id="continent"
-						placeholder="Nombre del producto"
 						class="block w-full h-10 px-4 cursor-pointer placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
 						formControlName="continent"
 					>
@@ -28,10 +27,72 @@
 							-- Seleccione un continente --
 						</option>
 						<option
-							*ngFor="let region of regions"
-							[value]="region"
+							*ngFor="let continent of regions"
+							[value]="continent"
 						>
-							{{ region }}
+							{{ continent }}
+						</option>
+					</select>
+					<span class="text-red-500 text-xs">Mensaje de error</span>
+				</div>
+			</div>
+			<div
+				class="flex flex-col gap-2 py-2"
+				*ngIf="countriesByRegion.length > 0"
+			>
+				<label
+					for="country"
+					class="block text-sm text-gray-700 font-bold"
+					>País</label
+				>
+				<div class="flex flex-col gap-1">
+					<select
+						id="country"
+						class="block w-full h-10 px-4 cursor-pointer placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+						formControlName="country"
+					>
+						<option
+							value=""
+							selected
+						>
+							-- Seleccione un país --
+						</option>
+						<option
+							*ngFor="let country of countriesByRegion"
+							[value]="country.cca3"
+						>
+							{{ country.name.common }}
+						</option>
+					</select>
+					<span class="text-red-500 text-xs">Mensaje de error</span>
+				</div>
+			</div>
+			<div
+				class="flex flex-col gap-2 py-2"
+				*ngIf="bordersByCountries.length > 0"
+			>
+				<label
+					for="borders"
+					class="block text-sm text-gray-700 font-bold"
+					>Frontera</label
+				>
+				<div class="flex flex-col gap-1">
+					<select
+						id="borders"
+						class="block w-full h-10 px-4 cursor-pointer placeholder-gray-500 bg-gray-100 border-0 rounded-md appearance-none text-blue-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-sm"
+						formControlName="country"
+					>
+						<option
+							value=""
+							selected
+						>
+							-- Seleccione una frontera --
+						</option>
+						<option
+							*ngFor="let border of bordersByCountries"
+							[value]="border"
+						>
+							{{ border }}
 						</option>
 					</select>
 					<span class="text-red-500 text-xs">Mensaje de error</span>
