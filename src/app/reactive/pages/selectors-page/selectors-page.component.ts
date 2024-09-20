@@ -13,7 +13,7 @@ export class SelectorsPageComponent implements OnInit {
 	public selectorForm: FormGroup = this.fb.group({
 		continent: ['', Validators.required],
 		country: ['', Validators.required],
-		borders: ['', Validators.required]
+		borders: ['']
 	});
 	public countriesByRegion: Country[] = [];
 	public bordersByCountries: string[] = [];
@@ -25,6 +25,7 @@ export class SelectorsPageComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.onContinentChange();
+		this.onCountryChange();
 	}
 
 	get regions(): Region[] {
@@ -56,12 +57,12 @@ export class SelectorsPageComponent implements OnInit {
 				)
 			)
 			.subscribe((borders) => {
-				if (!borders.borders) {
+				if (!borders[0].borders) {
 					this.bordersByCountries = [];
 					return;
 				}
 
-				this.bordersByCountries = borders.borders;
+				this.bordersByCountries = borders[0].borders;
 			});
 	}
 }

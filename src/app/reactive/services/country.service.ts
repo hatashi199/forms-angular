@@ -28,10 +28,10 @@ export class CountryService {
 			.pipe(tap((res) => console.log(res)));
 	}
 
-	getBordersByCountry(alphaCode: string): Observable<Country> {
+	getBordersByCountry(alphaCode: string): Observable<Country[]> {
 		if (!alphaCode) return of();
 		return this.http
-			.get<Country>(`https://restcountries.com/v3.1/alpha/${alphaCode}`)
+			.get<Country[]>(`https://restcountries.com/v3.1/alpha/${alphaCode}`)
 			.pipe(tap((res) => console.log(res)));
 	}
 }
