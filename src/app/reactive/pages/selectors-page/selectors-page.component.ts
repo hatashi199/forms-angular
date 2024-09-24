@@ -16,7 +16,7 @@ export class SelectorsPageComponent implements OnInit {
 		borders: ['']
 	});
 	public countriesByRegion: Country[] = [];
-	public bordersByCountries: string[] = [];
+	public bordersByCountries: Country[][] = [];
 
 	constructor(
 		private fb: FormBuilder,
@@ -54,15 +54,18 @@ export class SelectorsPageComponent implements OnInit {
 				filter((value: string) => value.length > 0), // El filter si retorna un true continua con lo siguiente, si recibe un false para el código ahí.
 				switchMap((alphaCode) =>
 					this.countryService.getBordersByCountry(alphaCode)
+				),
+				switchMap((country) =>
+					this.countryService.getCountryBordersByCodes(country[0])
 				)
 			)
 			.subscribe((borders) => {
-				if (!borders[0].borders) {
+				if (!borders[0][0].borders) {
 					this.bordersByCountries = [];
 					return;
 				}
 
-				this.bordersByCountries = borders[0].borders;
+				this.bordersByCountries = borders;
 			});
 	}
 }

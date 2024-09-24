@@ -90,9 +90,9 @@
 						</option>
 						<option
 							*ngFor="let border of bordersByCountries"
-							[value]="border"
+							[value]="border[0].cca3"
 						>
-							{{ border }}
+							{{ border[0].name.common }}
 						</option>
 					</select>
 					<span class="text-red-500 text-xs">Mensaje de error</span>
